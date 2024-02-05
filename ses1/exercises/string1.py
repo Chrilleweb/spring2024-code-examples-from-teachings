@@ -25,6 +25,9 @@ def donuts(count):
         return 'Number of donuts: many'
     else:
         return f'Number of donuts: {count}'
+    if count >= 10:
+      return 'Number of donuts: many'
+    return f'Number of donuts: {count}' 
 
 
 # B. both_ends
@@ -37,6 +40,9 @@ def both_ends(s):
         return ''
     else:
         return s[:2] + s[-2:]
+    if len(s) < 2:
+      return ''
+    return s[0:2] + s[-2:]
 
 
 # C. fix_start
@@ -52,6 +58,13 @@ def fix_start(s):
     first_char = s[0]
     return first_char + s[1:].replace(first_char, '*')
 
+    # get the first letter
+  firts = s[0]
+  # replace all occorences in the rest of the string
+  s = s.replace(firts, '*')
+  # reset first letter to original
+  s = firts + s[1:]
+  return s
 
 
 # D. MixUp
@@ -66,6 +79,15 @@ def mix_up(a, b):
     new_b = a[:2] + b[2:]
     return f'{new_a} {new_b}'
 
+   # get first 2 letters of a and b
+  afirst = a[:2]
+  bfirst = b[:2]
+  # get remains og a and b
+  alast = a[2:]
+  blast = b[2:]
+  # concatenate a and b
+  ab = f'{bfirst}{alast} {afirst}{blast}'
+  return ab
 
 
 # Provided simple test() function used in main() to print
